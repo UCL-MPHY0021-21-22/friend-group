@@ -2,4 +2,13 @@
 
 # Your code to go here...
 
-my_group =
+my_group = jiahui
+
+chengge
+
+xiao
+
+wendy
+
+zheng
+
