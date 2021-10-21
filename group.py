@@ -2,41 +2,44 @@
 
 # Your code to go here...
 group_info_dic = {
-    'Danny': {
-        'age':25,
-        'job': 'Machine learning engineer',
+    'Jill': {
+        'age':26,
+        'job': 'biologist',
         'connection': {
-            "Juncai": 'Classmate',
-            "Jenny": 'Classmate',
-            "Cheng Yuan": 'Classmate'
+            "Zalika": 'friend',
+            "John": 'partner'
         }
     },
-    'Jenny': {
-        'age': 21,
-        'job': 'Student',
+    'Zalika': {
+        'age': 28,
+        'job': 'artist',
         'connection': {
-            "Juncai": 'Classmate',
-            "Danny": 'Classmate',
-            "Cheng Yuan": 'Classmate'
+            "Jill": 'friend'
         }
     },
-    'Juncai': {
-        'age': 22,
-        'job': 'Student',
+    'John': {
+        'age': 27,
+        'job': 'writer',
         'connection': {
-            "Danny": "Classmate",
-            "Jenny": 'Classmate',
-            "Cheng Yuan": 'Classmate'
+            "Jill": "partner"
         }
     },
-    'Cheng Yuan': {
-        'age': 22,
-        'job': 'Student',
+    'Nash': {
+        'age': 34,
+        'job': 'chef',
         'connection': {
-            "Danny": "Classmate",
-            "Jenny": 'Classmate',
-            "Juncai": 'Classmate'
+            "John": "cousin",
+            "Zalika": 'landlord'
         }
     }
 }
 my_group = group_info_dic
+res = []
+for name, info in group_info_dic.items():
+    string = '{0:s} is {1:d}, a {2:s}'.format(name,info['age'], info['job'])
+    for c_n, c in info['connection'].items():
+        string = string + ", and is {0:s}'s {1:s}".format(c_n,c)
+    res.append(string)
+print(res)
+
+
