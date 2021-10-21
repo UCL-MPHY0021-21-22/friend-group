@@ -27,12 +27,7 @@ def max_age_1_relation(group):
 
 def max_age_1_friend(group):
     ### Takes an input of a list of names in the class "person" and outputs the max age in the group if they have at least one friend ###
-    names = []
-    for name in group:
-        for entry in name.relations.values():
-            if entry == 'friend' or entry == 'Friend':
-                names.append(name)
-    return max([name.age for name in names])
+    return max([name.age for name in group if list(name.relations.values()).count("friend") >=1])
 
 Jill = person('Jill',26,'Biologist')
 Zalika = person('Zalika',28,'Artist')
