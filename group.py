@@ -32,9 +32,11 @@ my_group = {
 def forget(person1, person2):
     for name, features in my_group.items():
         if name == person1:
-            del features['connection'][person2]
+            if person2 in features['connection'].keys():
+                del features['connection'][person2]
         if name == person2:
-            del features['connection'][person1]
+            if person1 in features['connection'].keys():
+                del features['connection'][person1]
 
 def add_person(name, age, job, relations):
     new_features = {'age': age, 'job': job, 'connection': relations}
@@ -46,7 +48,7 @@ def average_age():
         cnt += features['age']
     return cnt / len(my_group)
 
-forget('Jill', 'Zalika')
+forget('Jill', 'Nash')
 add_person("Jack", 20, 'teacher', {'Zalika': 'landlord'})
 
 print(my_group)
