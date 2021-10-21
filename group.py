@@ -34,4 +34,3 @@ my_group = {
 # 2 Yes
 # 3 No
 
->>>>>>> 5d2daf0228d427f48da115f2fb17797e924c1468
