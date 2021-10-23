@@ -1,5 +1,5 @@
 """An example of how to represent a group of acquaintances in Python."""
-
+import statistics
 # Your code to go here...
 
 my_group = {
@@ -7,7 +7,7 @@ my_group = {
         "age":22,
         "job":"student",
         "relationship":{
-            "Keru": "partner",
+            "Keru": "friend",
             "Lifeng": "friend"
         }
     },
@@ -49,3 +49,6 @@ for name in my_group:
     if len(my_group[name]['relationship']) > 1:
         list3.append(my_group[name]['age'])
 print("The maximum age of people in the group that have at least one relation is", max(list3), "years old")
+
+# The maximum age of people in the group that have at least one friend
+print(max([name['age'] for name in list(my_group.values()) if name["relationship"].get("friend")]))
