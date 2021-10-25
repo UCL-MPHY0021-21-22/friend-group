@@ -22,7 +22,7 @@ group = {
         }
     },
     "NewGuyNoFriends": {
-        "age": 15,
+        "age": 150,
         "job": "student",
         "relations": {
         }
@@ -48,11 +48,12 @@ mean_relations = np.mean([len(personalRelations.keys()) for personalRelations in
 print("mean number of relations is", mean_relations)
 
 # the maximum age of people in the group that have at least one relation
-max_nonfriendless = max([group.get(personName).get("age") for personName in group.keys() if len(group.get(personName).get("relations")) != 0])
-print("oldest person with at least one friend is", max_nonfriendless, "years old")
-
+max_non_relationless = max([group.get(personName).get("age") for personName in group.keys() if len(group.get(personName).get("relations")) != 0])
+print("oldest person with at least one relation of any type is", max_non_relationless, "years old")
 
 # [more advanced] the maximum age of people in the group that have at least one friend
+max_nonfriendless = max([group.get(personName).get("age") for personName in group.keys() if "friend" in list(group.get(personName).get("relations").values())])
+print("oldest person with a relation of type friend is", max_nonfriendless, "years old")
 
 
 
