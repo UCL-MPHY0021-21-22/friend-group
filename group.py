@@ -21,6 +21,12 @@ group = {
             "Jill": "partner"
         }
     },
+    "NewGuyNoFriends": {
+        "age": 15,
+        "job": "student",
+        "relations": {
+        }
+    },
     "Nash": {
         "age": 34,
         "job": "chef",
@@ -32,15 +38,20 @@ group = {
 }
 
 
-# Add some code that makes use of comprehension expressions to your group.py file so that it prints out the following when the script is run:
 
-# the maximum age of people in the group
 max_age = max([group.get(personName).get("age") for personName in group.keys()])
+print("oldest person is", max_age)
 
 
-# the average (mean) number of relations among members of the group
 import numpy as np
+relationships_dict_list = [group.get(personName).get("relations") for personName in group.keys()]
 mean_relations = np.mean([len(personalRelations.keys()) for personalRelations in relationships_dict_list])
+print("mean relations is ", mean_relations)
 
-# the maximum age of people in the group that have at least one relation
+
+
 # [more advanced] the maximum age of people in the group that have at least one friend
+
+
+
+
