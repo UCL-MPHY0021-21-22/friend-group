@@ -4,7 +4,7 @@
 
 from statistics import mean
 import json
-
+import yaml
 
 my_group = {
         "Jill": { "age": 26,
@@ -55,15 +55,24 @@ def max_age_with_one_relation(group):
 def max_age_with_one_friend(group):
     return max([person["age"] for person in list(group.values()) if person["connections"].get("friend")])
 
-
-def write_group_to_file(filename, group):
+def write_to_json_file(filename, dic):
     f = open(filename,"w")
-    text = json.dumps(my_group)
+    text = json.dumps(dic)
     f.write(text)
     f.close()
 
-def read_group_from_file(filename):
+def read_from_json_file(filename):
     with open(filename, 'r') as f:
-        grp = f.read()
-        grp = json.loads(grp)
-        return grp
+        dic = f.read()
+        dic = json.loads(dic)
+        return dic
+
+
+def write_to_yaml_file(filename, dic):
+    with open(filename, 'w') as f:
+        yaml.dump(dic, f)
+
+def read_from_yaml_file(filename):
+    with open(filename, 'r') as f:
+        dic = yaml.load(f, Loader=yaml.FullLoader)
+        return dic
