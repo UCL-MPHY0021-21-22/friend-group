@@ -39,5 +39,8 @@ max_age = max([group.get(personName).get("age") for personName in group.keys()])
 
 
 # the average (mean) number of relations among members of the group
+import numpy as np
+mean_relations = np.mean([len(personalRelations.keys()) for personalRelations in relationships_dict_list])
+
 # the maximum age of people in the group that have at least one relation
 # [more advanced] the maximum age of people in the group that have at least one friend
