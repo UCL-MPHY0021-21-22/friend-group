@@ -3,6 +3,8 @@
 # Your code to go here...
 
 from statistics import mean
+import json
+
 
 my_group = {
         "Jill": { "age": 26,
@@ -52,3 +54,16 @@ def max_age_with_one_relation(group):
 
 def max_age_with_one_friend(group):
     return max([person["age"] for person in list(group.values()) if person["connections"].get("friend")])
+
+
+def write_group_to_file(filename, group):
+    f = open(filename,"w")
+    text = json.dumps(my_group)
+    f.write(text)
+    f.close()
+
+def read_group_from_file(filename):
+    with open(filename, 'r') as f:
+        grp = f.read()
+        grp = json.loads(grp)
+        return grp
