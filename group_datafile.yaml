@@ -1,0 +1,4 @@
+{Jill: {age: 26, connections: {friend: Zalika, partner: John}, job: biologist}, John: {
+    age: 27, connections: {cousin: Nash, partner: Jill}, job: writer}, Nash: {age: 34,
+    connections: {cousin: John, tenant: Zalika}, job: chef}, Zalika: {age: 28, connections: {
+      friend: Jill, landlord: Nash}, job: artist}}
