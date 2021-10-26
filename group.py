@@ -1,8 +1,18 @@
 """An example of how to represent a group of acquaintances in Python."""
 
 # Your code to go here...
+def maximum_age(group_information):
+    max_age=0
+    people=''
+    for key, value in group_information.item():
+        if max_age<value:
+            max_age=value
+            people=key
 
-my_group = {
+    print("The older people of this group is "+people+"and the age is "+max_age)
+
+def main():
+    my_group = {
     'Jill':{
         'name':'Jill',
         'age':'26',
@@ -28,4 +38,5 @@ my_group = {
         'connection':{'friend':None,'partner':None,'landlord':None,'relatives':['John(cousin)']}
     },
 }
+    maximum_age(my_group)
 
