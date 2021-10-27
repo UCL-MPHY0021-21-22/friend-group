@@ -34,3 +34,21 @@ group = {
         }
     }
 }
+
+#find the biggest age
+age_series = []
+for name in group['name'] :
+    for age in name['age'] :
+        age_series.append(age)
+#old solution: bubble sort
+index = 0
+cash = 0
+for index in age_series :
+    if age_series(index) > age_series(index+1) :
+        cash = age_series(index+1)
+        age_series(index+1) = age_series(index)
+        age_series(index) = cash
+    index += 1
+print(age_series(len(age_series)-1))
+#new solution: max()
+#max(age_series)
