@@ -30,3 +30,6 @@ ages_new = [properties["age"] for properties in my_group.values() if len(propert
 print(f"now, the max ages is {max(ages_new)}")
 
 #3.4
+ages_new2 = [properties["age"] for properties in my_group.values() if "friend" in properties["connections"].values()]
+print(f" max age of the person with at least 1 friend is {max(ages_new2)}")
+
