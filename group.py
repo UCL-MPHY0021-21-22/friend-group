@@ -1,7 +1,7 @@
 """Code By Yukii"""
 """Stretch Goal: Friend group data functions #8"""
 
-def foget(group, person1, person2):
+def forget(group, person1, person2):
     """it removes the connection between two people in the group"""
 
     if person1 in group:
@@ -64,29 +64,24 @@ my_group = {
             'John': "cousin",
             'Zalika': 'landlord'
         }
-    },
-
-    'Billy': {
-        'age': 36,
-        'job': 'chef',
-        'relations': {}
     }
 }
 
-# 3.1
-ages = [properties['age'] for properties in my_group.values()]
-max_age = max(ages)
-print(f"Max age: {max_age}")
 
-# 3.2 
-number_of_relations = [len(properties['relations']) for properties in my_group.values()]
-mean = sum(number_of_relations)/len(number_of_relations)
-print(f"mean # of relations: {mean}")
+if __name__ == "__main__":
+    # test out functions
 
-# 3.3 
-age_of_people_with_relations = [properties['age'] for properties in my_group.values() if len(properties['relations']) >=1]
-print(f"Max age, with friend: {max(age_of_people_with_relations)}")
+    # foget
+    forget(my_group, 'Jill', "Zalika")
+    assert len(my_group['Jill']['relations']) == 1 # Jill should only have one relation
 
-# 3.4 
-age_of_people_with_friend = [properties['age'] for properties in my_group.values() if 'friend' in properties['relations'].values()]
-print(age_of_people_with_friend)
+    # add person
+    add_person(my_group, 'Bill', 36, 'chef', {})
+    assert len(my_group) == 5 #Group should have 5 members
+
+    # average age
+    # (26+27+28+34+36) / 5 = 30.2
+    assert average_age(my_group) == 30.2
+
+    print('All assertions have passed!')
+    
