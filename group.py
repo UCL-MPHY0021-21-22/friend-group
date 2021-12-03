@@ -9,21 +9,24 @@ my_group = {
         'relations': {
             'Zalika': 'friend',
             'John': 'partner'
-        },
+        }
+    },
     
     'Zalika': {
         'age': 28,
         'job': 'artist',
         'relations': {
             'Jill': "friend"
-        },
+        }
+    },
 
     'John': {
         'age': 27,
         'job': 'writer',
         'relations': {
             'Jill': 'partner'
-        },
+        }
+    },
 
     'Nash': {
         'age': 34,
@@ -32,8 +35,5 @@ my_group = {
             'John': "cousin",
             'Zalika': 'landlord'
         }
-    }
-    }
-    }
     }
 }
