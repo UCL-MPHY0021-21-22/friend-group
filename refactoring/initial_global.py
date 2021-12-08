@@ -1,16 +1,16 @@
-def average_age():
+def average_age(group):
     """Compute the average age of the group's members."""
     all_ages = [person["age"] for person in group.values()]
     return sum(all_ages) / len(group)
 
 
-def forget(person1, person2):
+def forget(group, person1, person2):
     """Remove the connection between two people."""
     group[person1]["relations"].pop(person2, None)
     group[person2]["relations"].pop(person1, None)
 
 
-def add_person(name, age, job, relations):
+def add_person(group, name, age, job, relations):
     """Add a new person with the given characteristics to the group."""
     new_person = {
         "age": age,
@@ -20,7 +20,7 @@ def add_person(name, age, job, relations):
     group[name] = new_person
 
 
-group = {
+my_group = {
     "Jill": {
         "age": 26,
         "job": "biologist",
@@ -50,12 +50,12 @@ nash_relations = {
     "Zalika": "landlord"
 }
 
-add_person("Nash", 34, "chef", nash_relations)
+add_person(my_group, "Nash", 34, "chef", nash_relations)
 
-forget("Nash", "John")
+forget(my_group, "Nash", "John")
 
 if __name__ == "__main__":
-    assert len(group) == 4, "Group should have 4 members"
-    assert average_age() == 28.75, "Average age of the group is incorrect!"
-    assert len(group["Nash"]["relations"]) == 1, "Nash should only have one relation"
+    assert len(my_group) == 4, "Group should have 4 members"
+    assert average_age(my_group) == 28.75, "Average age of the group is incorrect!"
+    assert len(my_group["Nash"]["relations"]) == 1, "Nash should only have one relation"
     print("All assertions have passed!")
